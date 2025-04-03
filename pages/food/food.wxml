@@ -1,0 +1,179 @@
+<view class="container">
+  <!-- 顶部导航 -->
+  <view class="header">
+    <text class="title">饮食记录</text>
+    <view class="remaining-count">
+      <text class="count-icon">🔍</text>
+      <text>剩余{{remainingCalls}}次</text>
+    </view>
+  </view>
+
+  <!-- 餐食类型选择 -->
+  <view class="meal-type-section card">
+    <view class="meal-type-tabs">
+      <view 
+        class="tab-item {{mealType === type.value ? 'active' : ''}}" 
+        wx:for="{{mealTypes}}" 
+        wx:key="value"
+        wx:for-item="type"
+        bindtap="selectMealType"
+        data-value="{{type.value}}"
+      >
+        <text class="tab-emoji">{{type.emoji}}</text>
+        <text class="tab-text">{{type.label}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 拍照区域 -->
+  <view class="photo-section {{!imgUrl ? 'empty' : ''}}" bindtap="{{!imgUrl ? 'chooseImage' : ''}}">
+    <block wx:if="{{!imgUrl}}">
+      <view class="photo-button">
+        <text class="camera-icon">📷</text>
+        <text class="photo-tip">点击拍照记录餐食</text>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="photo-container">
+        <image class="food-image" src="{{imgUrl}}" mode="aspectFill"></image>
+        <view class="photo-time">{{currentTime}}</view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 分析结果 -->
+  <view class="result-section card" wx:if="{{imgUrl && rawResult}}">
+    <view class="section-header">
+      <text class="section-title">分析结果</text>
+      <text class="section-emoji">🥗</text>
+    </view>
+    
+    <!-- 卡路里展示 -->
+    <view class="calories-display">
+      <text class="calories-value">{{nutritionInfo.calories || 0}}</text>
+      <text class="calories-unit">千卡</text>
+      <text class="calories-target">/1500kcal</text>
+    </view>
+
+    <!-- 营养构成 -->
+    <view class="nutrition-chart">
+      <view class="chart-container">
+        <!-- 这里可以添加环形图组件 -->
+        <nutrition-ring-chart nutritionData="{{nutritionInfo}}"></nutrition-ring-chart>
+      </view>
+      <view class="nutrition-details">
+        <view class="nutrition-item protein">
+          <text class="item-icon">🥚</text>
+          <text class="item-label">蛋白质</text>
+          <text class="item-value">{{nutritionInfo.protein || 0}}g</text>
+        </view>
+        <view class="nutrition-item carbs">
+          <text class="item-icon">🍚</text>
+          <text class="item-label">碳水</text>
+          <text class="item-value">{{nutritionInfo.carbs || 0}}g</text>
+        </view>
+        <view class="nutrition-item fat">
+          <text class="item-icon">🥑</text>
+          <text class="item-label">脂肪</text>
+          <text class="item-value">{{nutritionInfo.fat || 0}}g</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 健康小贴士 -->
+    <view class="health-tips">
+      <text class="tips-icon">💡</text>
+      <text class="tips-content">{{healthTip || '记得多喝水，保持营养均衡哦！'}}</text>
+    </view>
+
+    <!-- 详细分析文本 -->
+    <view class="analysis-text-section">
+      <view class="analysis-header" bindtap="toggleAnalysis">
+        <text class="analysis-title">详细分析</text>
+        <text class="expand-icon">{{isAnalysisExpanded ? '↑' : '↓'}}</text>
+      </view>
+      <view class="analysis-content {{isAnalysisExpanded ? 'expanded' : ''}}">
+        <text user-select="true">{{rawResult}}</text>
+      </view>
+    </view>
+
+    <button class="save-btn {{isSaved ? 'saved' : ''}}" bindtap="saveRecord">
+      <text wx:if="{{!isSaved}}">保存记录</text>
+      <text wx:else>✔️ 已保存</text>
+    </button>
+  </view>
+
+  <!-- 健康建议部分 -->
+  <!-- <view class="advice-section" wx:if="{{healthAdvice}}">
+    <view class="section-title">健康建议</view>
+    <view class="advice-item">
+      <text class="label">营养分析：</text>
+      <text class="content" user-select="true">{{healthAdvice.nutritionAnalysis}}</text>
+    </view>
+    <view class="advice-item">
+      <text class="label">适合人群：</text>
+      <text class="content" user-select="true">{{healthAdvice.suitableGroups}}</text>
+    </view>
+    <view class="advice-item">
+      <text class="label">食用建议：</text>
+      <text class="content" user-select="true">{{healthAdvice.consumptionTips}}</text>
+    </view>
+    <view class="advice-item">
+      <text class="label">注意事项：</text>
+      <text class="content" user-select="true">{{healthAdvice.precautions}}</text>
+    </view>
+  </view> -->
+
+  <!-- 营养图表 -->
+  <!-- <view class="chart-section">
+    <nutrition-chart nutritionData="{{nutritionInfo}}" wx:if="{{nutritionInfo}}"></nutrition-chart>
+  </view> -->
+
+  <!-- 历史记录 -->
+  <view class="history-section card">
+    <view class="section-header">
+      <text class="section-title">历史记录</text>
+      <text class="section-emoji">📅</text>
+    </view>
+    <view class="history-grid">
+      <block wx:if="{{historyRecords.length > 0}}">
+        <view class="history-item" wx:for="{{historyRecords}}" wx:key="id" bindtap="showHistoryDetail" data-id="{{item.id}}">
+          <image 
+            class="history-image" 
+            src="{{item.imageUrl}}" 
+            mode="aspectFill"
+            wx:if="{{item.imageUrl}}"
+          ></image>
+          <view class="history-overlay">
+            <view class="history-header">
+              <text class="history-meal-type">{{item.mealType}}</text>
+              <text class="history-time">{{item.createTime}}</text>
+            </view>
+            <view class="history-nutrition">
+              <view class="nutrition-row">
+                <text class="nutrition-label">热量</text>
+                <text class="nutrition-value">{{item.calories}}千卡</text>
+              </view>
+              <view class="nutrition-row">
+                <text class="nutrition-label">蛋白质</text>
+                <text class="nutrition-value">{{item.protein}}g</text>
+              </view>
+              <view class="nutrition-row">
+                <text class="nutrition-label">碳水</text>
+                <text class="nutrition-value">{{item.carbs}}g</text>
+              </view>
+              <view class="nutrition-row">
+                <text class="nutrition-label">脂肪</text>
+                <text class="nutrition-value">{{item.fat}}g</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <view wx:else class="no-records">
+        <text class="no-records-icon">📝</text>
+        <text>暂无饮食记录</text>
+      </view>
+    </view>
+  </view>
+</view> 

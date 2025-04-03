@@ -1,0 +1,119 @@
+<view class="container">
+  <!-- 已登录后显示正常内容 -->
+  <block wx:if="{{hasUserInfo}}">
+    <!-- 顶部导航 -->
+    <view class="header">
+      <text class="title">健康助手</text>
+      <view class="avatar-container" bindtap="goToProfile">
+        <image class="avatar" src="{{userInfo.avatarUrl || '/images/default-avatar.png'}}" mode="aspectFill"></image>
+      </view>
+    </view>
+
+    <!-- 今日营养摄入 -->
+    <view class="card nutrition-card">
+      <view class="card-title">
+        <text class="title-text">今日营养</text>
+        <text class="title-emoji">🥗</text>
+      </view>
+      
+      <view class="calories-progress">
+        <view class="progress-circle">
+          <text class="calories-value">{{dailyNutrition.calories.value || 0}}</text>
+          <text class="calories-label">千卡</text>
+          <text class="calories-target">消耗: {{dailyNutrition.calories.goal || 0}}千卡</text>
+        </view>
+        </view>
+      <view class="nutrition-bars">
+        <view class="nutrition-bar">
+          <text class="bar-label">蛋白质</text>
+          <view class="bar-container">
+            <view class="bar-progress {{!dailyNutrition.protein.value ? 'empty' : ''}}" 
+              style="width: {dailyNutrition.protein.percent}%">
+        </view>
+      </view>
+          <text class="bar-value">{{dailyNutrition.protein.value || 0}}g</text>
+        </view>
+        <view class="nutrition-bar">
+          <text class="bar-label">碳水</text>
+          <view class="bar-container">
+            <view class="bar-progress {{!dailyNutrition.carbs.value ? 'empty' : ''}}"
+              style="width: {dailyNutrition.carbs.percent}%">
+        </view>
+      </view>
+          <text class="bar-value">{{dailyNutrition.carbs.value || 0}}g</text>
+        </view>
+        <view class="nutrition-bar">
+          <text class="bar-label">脂肪</text>
+          <view class="bar-container">
+            <view class="bar-progress {{!dailyNutrition.fat.value ? 'empty' : ''}}"
+              style="width: {dailyNutrition.fat.percent}%">
+        </view>
+      </view>
+          <text class="bar-value">{{dailyNutrition.fat.value || 0}}g</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 今日餐食 -->
+    <view class="card meals-card">
+      <view class="card-title">
+        <text class="title-text">今日饮食</text>
+        <text class="title-emoji">🍽</text>
+      </view>
+      <view class="meals-list">
+        <view class="meal-item" bindtap="goToFood" data-meal-type="BREAKFAST" hover-class="item-hover">
+          <text class="meal-emoji">🍳</text>
+          <text class="meal-type">早餐</text>
+          <text class="meal-content">{{todayMeals.breakfast || '点击记录'}}</text>
+        </view>
+        <view class="meal-item" bindtap="goToFood" data-meal-type="LUNCH" hover-class="item-hover">
+          <text class="meal-emoji">🍱</text>
+          <text class="meal-type">午餐</text>
+          <text class="meal-content">{{todayMeals.lunch || '点击记录'}}</text>
+        </view>
+        <view class="meal-item" bindtap="goToFood" data-meal-type="DINNER" hover-class="item-hover">
+          <text class="meal-emoji">🍴</text>
+          <text class="meal-type">晚餐</text>
+          <text class="meal-content">{{todayMeals.dinner || '点击记录'}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 今日运动 -->
+    <view class="card exercise-card">
+      <view class="card-title">
+        <text class="title-text">今日运动</text>
+        <text class="title-emoji">🏃</text>
+      </view>
+      <block wx:if="{{todayExercises.length > 0}}">
+        <view class="exercise-list">
+          <view class="exercise-item" wx:for="{{todayExercises}}" wx:key="id">
+            <text class="exercise-name">{{item.type}}</text>
+            <text class="exercise-info">{{item.duration}}分钟 🔥{{item.calories}}千卡</text>
+          </view>
+        </view>
+      </block>
+      <view wx:else class="no-exercise" bindtap="goToExercise" hover-class="item-hover">
+        <text>开始记录</text>
+      </view>
+    </view>
+
+    <!-- 健康建议 -->
+    <view class="card tips-card">
+      <view class="card-title">
+        <text class="title-text">小贴士</text>
+        <text class="title-emoji">💡</text>
+      </view>
+      <text class="tip-content">{{healthTip || '记得多喝水哦！💧'}}</text>
+    </view>
+  </block>
+
+  <!-- 授权提示弹窗 -->
+  <view class="auth-modal" wx:if="{{showAuthModal}}">
+    <view class="auth-content">
+      <view class="auth-title">微信授权登录</view>
+      <view class="auth-desc">获取你的昵称、头像等信息</view>
+      <button class="auth-btn" open-type="getUserInfo" bindtap="handleLogin">确认授权</button>
+    </view>
+  </view>
+</view> 

@@ -1,0 +1,211 @@
+/* 全局变量继承 */
+page {
+  --primary-color: #4CAF50;
+  --primary-light: #8BC34A;
+  --background-color: #F5F5F5;
+  --card-background: #FFFFFF;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --border-radius: 16rpx;
+  --card-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
+  
+  background-color: var(--background-color);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 用户信息栏 */
+.user-info-section {
+  background: var(--primary-color);
+  padding: 40rpx;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.avatar-container {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  background: white;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 20rpx;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+}
+
+.default-avatar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 80rpx;
+}
+
+.nickname {
+  font-size: 36rpx;
+  color: white;
+  margin-bottom: 16rpx;
+}
+
+.achievement {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8rpx 16rpx;
+  border-radius: 20rpx;
+}
+
+.achievement-icon {
+  font-size: 40rpx;
+  color: #FFC107;
+}
+
+.achievement-text {
+  font-size: 28rpx;
+  color: white;
+}
+
+/* 功能列表 */
+.function-list {
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32rpx;
+  height: 112rpx;
+  box-sizing: border-box;
+  border-bottom: 2rpx solid #E0E0E0;
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+.item-left {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.item-icon {
+  font-size: 40rpx;
+  color: var(--primary-color);
+}
+
+.item-text {
+  font-size: 32rpx;
+  color: var(--text-primary);
+}
+
+.item-arrow {
+  font-size: 40rpx;
+  color: #999999;
+}
+
+/* 点击效果 */
+.list-item:active {
+  background-color: #F5F5F5;
+}
+
+.avatar-container:active {
+  opacity: 0.8;
+}
+
+.achievement:active {
+  opacity: 0.8;
+}
+
+.stats-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
+}
+
+.stats-title {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+}
+
+.stats-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx;
+}
+
+.stats-value {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.stats-label {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 8rpx;
+}
+
+.function-item {
+  display: flex;
+  align-items: center;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+
+.function-item:last-child {
+  border-bottom: none;
+}
+
+.function-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+
+.function-name {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.arrow-icon {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.item-tag {
+  font-size: 24rpx;
+  color: #ffffff;
+  background-color: #999999;
+  padding: 4rpx 12rpx;
+  border-radius: 8rpx;
+  margin-right: 10rpx;
+} 

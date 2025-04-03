@@ -1,0 +1,42 @@
+<view class="container">
+  <view class="header">
+    <text class="title">我的成就</text>
+    <text class="title-emoji">🏆</text>
+  </view>
+
+  <!-- 连续打卡 -->
+  <view class="streak-card card">
+    <view class="streak-header">
+      <text class="streak-title">连续打卡</text>
+      <text class="streak-days">{{streak}}天</text>
+    </view>
+    <view class="streak-progress">
+      <view class="progress-bar">
+        <view class="progress-fill" style="width: {{(streak/7)*100}}%"></view>
+      </view>
+      <text class="progress-text">距离下一个成就还差{{7-streak}}天</text>
+    </view>
+  </view>
+
+  <!-- 成就列表 -->
+  <view class="achievements-list">
+    <view class="achievement-card card" wx:for="{{achievements}}" wx:key="id">
+      <view class="achievement-icon">{{item.icon}}</view>
+      <view class="achievement-info">
+        <text class="achievement-name">{{item.name}}</text>
+        <text class="achievement-desc">{{item.description}}</text>
+        <view class="achievement-progress">
+          <view class="progress-bar">
+            <view class="progress-fill" 
+                  style="width: {{(item.progress/item.target)*100}}%">
+            </view>
+          </view>
+          <text class="progress-text">{{item.progress}}/{{item.target}}</text>
+        </view>
+      </view>
+      <view class="achievement-status {{item.achieved ? 'achieved' : ''}}">
+        {{item.achieved ? '已获得' : '进行中'}}
+      </view>
+    </view>
+  </view>
+</view> 

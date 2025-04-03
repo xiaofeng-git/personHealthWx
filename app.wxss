@@ -1,0 +1,80 @@
+/* 全局变量 */
+page {
+  --primary-color: #4CAF50;
+  --primary-light: #8BC34A;
+  --background-color: #F5F5F5;
+  --card-background: #FFFFFF;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --border-radius: 16rpx;
+  --card-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
+  
+  background-color: var(--background-color);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 通用容器样式 */
+.container {
+  padding: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 通用卡片样式 */
+.card {
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: var(--card-shadow);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 通用标题样式 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10rpx 0 30rpx;
+}
+
+.header .title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+/* 通用文本样式 */
+.section-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 20rpx;
+}
+
+.text-secondary {
+  font-size: 28rpx;
+  color: var(--text-secondary);
+}
+
+/* 通用按钮样式 */
+.btn-primary {
+  background: var(--primary-color);
+  color: white;
+  border-radius: var(--border-radius);
+}
+
+/* 通用列表样式 */
+.list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.list-item {
+  background: #F8F8F8;
+  border-radius: var(--border-radius);
+  padding: 24rpx;
+} 

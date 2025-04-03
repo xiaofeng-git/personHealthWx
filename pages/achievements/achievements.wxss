@@ -1,0 +1,21 @@
+/* 继承全局样式变量 */
+page {
+  --primary-color: #4CAF50;
+  --primary-light: #8BC34A;
+  --background-color: #F5F5F5;
+  --card-background: #FFFFFF;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --border-radius: 16rpx;
+  --card-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
+  
+  background-color: var(--background-color);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 20rpx;
+}
+
+/* 其他样式... */ 

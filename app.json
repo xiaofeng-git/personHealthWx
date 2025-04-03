@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/food/food",
+    "pages/exercise/exercise",
+    "pages/profile/profile",
+    "pages/diet-plan/diet-plan",
+    "pages/health-stats/health-stats",
+    "pages/goal-setting/goal-setting",
+    "pages/history/history",
+    "pages/settings/settings"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "健康管理助手",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#07c160",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-active.png"
+      },
+      {
+        "pagePath": "pages/food/food",
+        "text": "饮食",
+        "iconPath": "images/food.png",
+        "selectedIconPath": "images/food-active.png"
+      },
+      {
+        "pagePath": "pages/exercise/exercise",
+        "text": "运动",
+        "iconPath": "images/exercise.png",
+        "selectedIconPath": "images/exercise-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "images/profile.png",
+        "selectedIconPath": "images/profile-active.png"
+      }
+    ]
+  }
+} 

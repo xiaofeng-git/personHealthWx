@@ -1,0 +1,135 @@
+/* 继承全局样式变量 */
+page {
+  --primary-color: #4CAF50;
+  --primary-light: #8BC34A;
+  --background-color: #F5F5F5;
+  --card-background: #FFFFFF;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --border-radius: 16rpx;
+  --card-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
+  
+  background-color: var(--background-color);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 20rpx;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.card {
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: var(--card-shadow);
+}
+
+.card-title {
+  margin-bottom: 20rpx;
+}
+
+.title-text {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+/* 总览卡片样式 */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx;
+  background: #F8F8F8;
+  border-radius: var(--border-radius);
+}
+
+.stat-value {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: var(--text-secondary);
+  margin-top: 8rpx;
+}
+
+/* 营养分析样式 */
+.nutrition-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.nutrition-item {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.label {
+  width: 120rpx;
+  font-size: 28rpx;
+  color: var(--text-secondary);
+}
+
+.progress-bar {
+  flex: 1;
+  height: 16rpx;
+  background: #F5F5F5;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--primary-color);
+  border-radius: 8rpx;
+  transition: width 0.3s ease;
+}
+
+.value {
+  width: 120rpx;
+  font-size: 28rpx;
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+/* 运动分析样式 */
+.exercise-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16rpx;
+  background: #F8F8F8;
+  border-radius: var(--border-radius);
+} 

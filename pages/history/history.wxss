@@ -1,0 +1,123 @@
+/* 继承全局样式变量 */
+page {
+  --primary-color: #4CAF50;
+  --primary-light: #8BC34A;
+  --background-color: #F5F5F5;
+  --card-background: #FFFFFF;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --border-radius: 16rpx;
+  --card-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
+  
+  background-color: var(--background-color);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 20rpx;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.card {
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: var(--card-shadow);
+}
+
+/* 类型选择器样式 */
+.type-selector {
+  display: flex;
+  gap: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.type-option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8rpx;
+  padding: 20rpx;
+  background: #F8F8F8;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+}
+
+.type-option.active {
+  background: var(--primary-color);
+  color: white;
+}
+
+.option-icon {
+  font-size: 32rpx;
+}
+
+/* 记录列表样式 */
+.records-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.record-card {
+  display: flex;
+  gap: 16rpx;
+}
+
+.food-image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: var(--border-radius);
+}
+
+.record-info {
+  flex: 1;
+}
+
+.record-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8rpx;
+}
+
+.record-name {
+  font-size: 32rpx;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.record-time {
+  font-size: 24rpx;
+  color: var(--text-secondary);
+}
+
+.nutrition-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8rpx;
+  font-size: 24rpx;
+  color: var(--text-secondary);
+}
+
+.exercise-info {
+  display: flex;
+  gap: 16rpx;
+  font-size: 24rpx;
+  color: var(--text-secondary);
+} 

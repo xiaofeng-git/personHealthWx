@@ -1,0 +1,82 @@
+<view class="container">
+  <view class="header">
+    <text class="title">健康数据统计</text>
+    <text class="title-emoji">📊</text>
+  </view>
+
+  <!-- 总览卡片 -->
+  <view class="overview-card card">
+    <view class="card-title">
+      <text class="title-text">数据总览</text>
+    </view>
+    <view class="stats-grid">
+      <view class="stat-item">
+        <text class="stat-value">{{overview.totalRecords}}</text>
+        <text class="stat-label">记录总数</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-value">{{overview.daysCount}}天</text>
+        <text class="stat-label">记录天数</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-value">{{overview.avgCalories}}千卡</text>
+        <text class="stat-label">平均摄入</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-value">{{overview.avgExercise}}千卡</text>
+        <text class="stat-label">平均消耗</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 营养摄入分析 -->
+  <view class="nutrition-card card">
+    <view class="card-title">
+      <text class="title-text">营养摄入分析</text>
+    </view>
+    <view class="nutrition-stats">
+      <view class="nutrition-item">
+        <text class="label">蛋白质</text>
+        <view class="progress-bar">
+          <view class="progress-fill" style="width: {{(nutrition.protein/50)*100}}%"></view>
+        </view>
+        <text class="value">{{nutrition.protein}}g/天</text>
+      </view>
+      <view class="nutrition-item">
+        <text class="label">碳水</text>
+        <view class="progress-bar">
+          <view class="progress-fill" style="width: {{(nutrition.carbs/150)*100}}%"></view>
+        </view>
+        <text class="value">{{nutrition.carbs}}g/天</text>
+      </view>
+      <view class="nutrition-item">
+        <text class="label">脂肪</text>
+        <view class="progress-bar">
+          <view class="progress-fill" style="width: {{(nutrition.fat/40)*100}}%"></view>
+        </view>
+        <text class="value">{{nutrition.fat}}g/天</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 运动分析 -->
+  <view class="exercise-card card">
+    <view class="card-title">
+      <text class="title-text">运动分析</text>
+    </view>
+    <view class="exercise-stats">
+      <view class="stat-row">
+        <text class="label">运动次数</text>
+        <text class="value">{{exercise.count}}次</text>
+      </view>
+      <view class="stat-row">
+        <text class="label">运动时长</text>
+        <text class="value">{{exercise.duration}}分钟</text>
+      </view>
+      <view class="stat-row">
+        <text class="label">消耗热量</text>
+        <text class="value">{{exercise.calories}}千卡</text>
+      </view>
+    </view>
+  </view>
+</view> 

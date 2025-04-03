@@ -1,0 +1,116 @@
+<view class="container">
+  <!-- 顶部导航 -->
+  <view class="header">
+    <text class="title">运动记录</text>
+    <text class="title-emoji">🏋️‍♂️</text>
+  </view>
+
+  <!-- 参数输入表单 -->
+  <view class="form-card card">
+    <!-- 性别选择 -->
+    <view class="form-item">
+      <text class="label">性别</text>
+      <view class="gender-selector">
+        <view class="gender-option {{gender === 'male' ? 'active' : ''}}" 
+              bindtap="selectGender" data-gender="male">
+          <text class="gender-icon">♂</text>
+          <text>男性</text>
+        </view>
+        <view class="gender-option {{gender === 'female' ? 'active' : ''}}" 
+              bindtap="selectGender" data-gender="female">
+          <text class="gender-icon">♀</text>
+          <text>女性</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 体重输入 -->
+    <view class="form-item">
+      <text class="label">体重</text>
+      <picker mode="selector" 
+              range="{{weightRange}}" 
+              value="{{weightIndex}}"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+              bindchange="onWeightChange">
+        <view class="picker {{weight ? '' : 'placeholder'}}">
+          {{weight || '请选择'}}
+          <text class="unit">kg</text>
+        </view>
+      </picker>
+    </view>
+
+    <!-- 运动类型选择 -->
+    <view class="form-item">
+      <text class="label">运动类型</text>
+      <picker mode="selector"
+              bindchange="onExerciseTypeChange" 
+              value="{{selectedExerciseIndex}}" 
+              range="{{exerciseTypes}}" 
+              range-key="name">
+        <view class="picker-value">
+          <text>{{selectedExercise.name || '请选择运动类型'}}</text>
+          <text class="picker-arrow">▼</text>
+        </view>
+      </picker>
+    </view>
+
+    <!-- 运动时长 -->
+    <view class="form-item">
+      <text class="label">运动时长</text>
+      <picker mode="selector" 
+              range="{{durationRange}}" 
+              value="{{durationIndex}}"
+              bindchange="onDurationChange">
+        <view class="picker-value">
+          <text>{{duration || '0'}} 分钟</text>
+          <text class="picker-arrow">▼</text>
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <!-- 卡路里计算结果 -->
+  <view class="result-card card">
+    <view class="calories-result">
+      <text class="result-label">预计消耗</text>
+      <view class="calories-value">
+        <text class="number">{{calories || 0}}</text>
+        <text class="unit">千卡</text>
+      </view>
+    </view>
+    <button class="save-btn" 
+            bindtap="saveExercise"
+            type="primary"
+            disabled="{{!selectedExercise || !duration}}">
+      保存记录
+    </button>
+  </view>
+
+  <!-- 历史记录 -->
+  <view class="history-card card">
+    <view class="card-title">
+      <text class="title-text">运动历史</text>
+      <text class="title-emoji">📅</text>
+    </view>
+    <view class="history-list">
+      <block wx:if="{{historyRecords && historyRecords.length > 0}}">
+        <view class="history-item" 
+              wx:for="{{historyRecords}}" 
+              wx:key="id">
+          <view class="history-info">
+            <view class="history-header">
+              <text class="history-type">{{item.type}}</text>
+              <text class="history-calories">-{{item.calories}}千卡</text>
+            </view>
+            <view class="history-details">
+              <text class="history-duration">{{item.duration}}分钟</text>
+              <text class="history-time">{{item.createdAt}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+      <view wx:else class="no-records">
+        <text>暂无运动记录</text>
+      </view>
+    </view>
+  </view>
+</view> 

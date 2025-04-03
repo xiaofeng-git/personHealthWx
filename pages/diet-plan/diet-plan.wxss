@@ -1,0 +1,139 @@
+.container {
+  padding: 30rpx;
+  background-color: #f8f8f8;
+  min-height: 100vh;
+}
+
+.header {
+  margin-bottom: 40rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.plans-container {
+  margin-bottom: 40rpx;
+}
+
+.plan-card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.05);
+  display: flex;
+  position: relative;
+  border: 2rpx solid transparent;
+}
+
+.plan-card.selected {
+  border-color: #1aad19;
+}
+
+.plan-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.plan-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.discount-tag {
+  background-color: #ff6b6b;
+  color: #fff;
+  font-size: 24rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 8rpx;
+  margin-left: 16rpx;
+}
+
+.plan-details {
+  flex: 1;
+}
+
+.plan-price {
+  margin-bottom: 8rpx;
+}
+
+.price-value {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #1aad19;
+}
+
+.price-period {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.plan-count {
+  font-size: 28rpx;
+  color: #333;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.plan-description {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.radio-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20rpx;
+}
+
+.radio {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  border: 2rpx solid #ddd;
+  position: relative;
+}
+
+.radio.selected {
+  border-color: #1aad19;
+}
+
+.radio.selected:after {
+  content: "";
+  position: absolute;
+  width: 24rpx;
+  height: 24rpx;
+  background-color: #1aad19;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.note {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 60rpx;
+}
+
+.footer {
+  padding: 30rpx 0;
+}
+
+.purchase-btn {
+  background-color: #1aad19;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 8rpx;
+  width: 100%;
+}
+
+.purchase-btn.disabled {
+  background-color: #ccc;
+} 

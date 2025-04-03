@@ -1,0 +1,41 @@
+<view class="container">
+  <view class="header">
+    <view class="title">选择适合您的套餐</view>
+  </view>
+  
+  <view class="plans-container">
+    <block wx:for="{{plans}}" wx:key="id">
+      <view class="plan-card {{selectedPlan === item.id ? 'selected' : ''}}" 
+            bindtap="selectPlan" 
+            data-id="{{item.id}}">
+        <view class="plan-header">
+          <text class="plan-name">{{item.name}}</text>
+          <view class="discount-tag" wx:if="{{item.discount}}">
+            <text>{{item.discount}}</text>
+          </view>
+        </view>
+        
+        <view class="plan-details">
+          <view class="plan-price">
+            <text class="price-value">{{item.price}}</text>
+            <text class="price-period">/{{item.period}}</text>
+          </view>
+          <text class="plan-count">{{item.count}}</text>
+          <text class="plan-description">{{item.description}}</text>
+        </view>
+        
+        <view class="radio-container">
+          <view class="radio {{selectedPlan === item.id ? 'selected' : ''}}"></view>
+        </view>
+      </view>
+    </block>
+  </view>
+  
+  <view class="note">👉：亲，您的免费用户每月可使用3次饮食分析功能</view>
+   <view class="note">📌：购买套餐后是不能申请退款的哦亲</view>
+  <view class="footer">
+    <button class="purchase-btn {{!selectedPlan ? 'disabled' : ''}}" 
+            bindtap="handlePurchase" 
+            disabled="{{!selectedPlan}}">确认购买</button>
+  </view>
+</view> 

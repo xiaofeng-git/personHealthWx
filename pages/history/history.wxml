@@ -1,0 +1,57 @@
+<view class="container">
+  <view class="header">
+    <text class="title">历史记录</text>
+    <text class="title-emoji">📂</text>
+  </view>
+
+  <!-- 类型选择器 -->
+  <view class="type-selector card">
+    <view class="type-option {{currentType === 'food' ? 'active' : ''}}" 
+          bindtap="switchType" 
+          data-type="food">
+      <text class="option-icon">🍽</text>
+      <text>饮食记录</text>
+    </view>
+    <view class="type-option {{currentType === 'exercise' ? 'active' : ''}}" 
+          bindtap="switchType" 
+          data-type="exercise">
+      <text class="option-icon">🏃</text>
+      <text>运动记录</text>
+    </view>
+  </view>
+
+  <!-- 记录列表 -->
+  <view class="records-list">
+    <block wx:if="{{currentType === 'food'}}">
+      <view class="record-card card" wx:for="{{foodRecords}}" wx:key="id">
+        <image class="food-image" src="{{item.imageUrl}}" mode="aspectFill"></image>
+        <view class="record-info">
+          <view class="record-header">
+            <text class="record-name">{{item.foodName}}</text>
+            <text class="record-time">{{item.createdAt}}</text>
+          </view>
+          <view class="nutrition-info">
+            <text>热量: {{item.calories}}千卡</text>
+            <text>蛋白质: {{item.protein}}g</text>
+            <text>碳水: {{item.carbs}}g</text>
+            <text>脂肪: {{item.fat}}g</text>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="record-card card" wx:for="{{exerciseRecords}}" wx:key="id">
+        <view class="record-info">
+          <view class="record-header">
+            <text class="record-name">{{item.type}}</text>
+            <text class="record-time">{{item.createdAt}}</text>
+          </view>
+          <view class="exercise-info">
+            <text>时长: {{item.duration}}分钟</text>
+            <text>消耗: {{item.calories}}千卡</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view> 

@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="section">
+    <view class="section-title">选择运动类型</view>
+    <view class="type-grid">
+      <view class="type-item {{selectedType === item.name ? 'selected' : ''}}"
+            wx:for="{{exerciseTypes}}"
+            wx:key="name"
+            bindtap="onTypeSelect"
+            data-type="{{item.name}}">
+        <image class="type-icon" src="/images/{{item.icon}}.png" mode="aspectFit"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">运动时长（分钟）</view>
+    <slider min="5" max="180" step="5" value="{{duration}}" 
+            block-size="28" show-value
+            bindchange="onDurationChange"/>
+  </view>
+
+  <view class="section">
+    <view class="section-title">预计消耗</view>
+    <view class="calories">{{calories}} 千卡</view>
+  </view>
+
+  <button class="save-btn" type="primary" bindtap="saveExercise">保存记录</button>
+</view> 

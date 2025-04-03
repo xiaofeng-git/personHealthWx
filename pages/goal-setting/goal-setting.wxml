@@ -1,0 +1,96 @@
+<view class="container">
+  <view class="header">
+    <text class="title">目标设置</text>
+    <text class="title-emoji">🎯</text>
+  </view>
+
+  <!-- 营养目标 -->
+  <view class="goals-card card">
+    <view class="card-title">
+      <text class="title-text">营养目标</text>
+    </view>
+    <view class="goal-items">
+      <view class="goal-item">
+        <text class="label">每日热量</text>
+        <input type="number" 
+               class="input" 
+               value="{{nutritionGoals.calories}}"
+               data-type="calories"
+               bindchange="onNutritionGoalChange"
+               placeholder="输入目标热量"/>
+        <text class="unit">千卡</text>
+      </view>
+      <view class="goal-item">
+        <text class="label">蛋白质</text>
+        <input type="number" 
+               class="input" 
+               value="{{nutritionGoals.protein}}"
+               data-type="protein"
+               bindchange="onNutritionGoalChange"
+               placeholder="输入目标蛋白质"/>
+        <text class="unit">g</text>
+      </view>
+      <view class="goal-item">
+        <text class="label">碳水化合物</text>
+        <input type="number" 
+               class="input" 
+               value="{{nutritionGoals.carbs}}"
+               data-type="carbs"
+               bindchange="onNutritionGoalChange"
+               placeholder="输入目标碳水"/>
+        <text class="unit">g</text>
+      </view>
+      <view class="goal-item">
+        <text class="label">脂肪</text>
+        <input type="number" 
+               class="input" 
+               value="{{nutritionGoals.fat}}"
+               data-type="fat"
+               bindchange="onNutritionGoalChange"
+               placeholder="输入目标脂肪"/>
+        <text class="unit">g</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 运动目标 -->
+  <view class="goals-card card">
+    <view class="card-title">
+      <text class="title-text">运动目标</text>
+    </view>
+    <view class="goal-items">
+      <view class="goal-item">
+        <text class="label">每周运动</text>
+        <input type="number" 
+               class="input" 
+               value="{{exerciseGoals.frequency}}"
+               data-type="frequency"
+               bindchange="onExerciseGoalChange"
+               placeholder="输入每周运动次数"/>
+        <text class="unit">次</text>
+      </view>
+      <view class="goal-item">
+        <text class="label">每次时长</text>
+        <input type="number" 
+               class="input" 
+               value="{{exerciseGoals.duration}}"
+               data-type="duration"
+               bindchange="onExerciseGoalChange"
+               placeholder="输入每次运动时长"/>
+        <text class="unit">分钟</text>
+      </view>
+      <view class="goal-item">
+        <text class="label">消耗热量</text>
+        <input type="number" 
+               class="input" 
+               value="{{exerciseGoals.calories}}"
+               data-type="calories"
+               bindchange="onExerciseGoalChange"
+               placeholder="输入目标消耗热量"/>
+        <text class="unit">千卡</text>
+      </view>
+    </view>
+  </view>
+
+  <button class="save-btn" bindtap="saveGoals">保存设置</button>
+</view> 

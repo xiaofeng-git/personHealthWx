@@ -1,0 +1,332 @@
+/* 全局变量 */
+page {
+  --primary-color: #4CAF50;
+  --primary-light: #8BC34A;
+  --background-color: #F5F5F5;
+  --card-background: #FFFFFF;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --border-radius: 16rpx;
+  --card-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
+  
+  background-color: var(--background-color);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 顶部导航 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10rpx 0 30rpx;
+}
+
+.header .title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.avatar-container {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2rpx solid var(--primary-color);
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+}
+
+/* 卡片通用样式 */
+.card {
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: var(--card-shadow);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.title-text {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.title-emoji {
+  margin-left: 10rpx;
+  font-size: 36rpx;
+}
+
+/* 营养卡片 */
+.calories-progress {
+  display: flex;
+  justify-content: center;
+  margin: 20rpx 0;
+}
+
+.progress-circle {
+  text-align: center;
+}
+
+.calories-value {
+  font-size: 52rpx;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.calories-label {
+  font-size: 24rpx;
+  color: var(--text-secondary);
+  display: block;
+}
+
+.calories-target {
+  font-size: 24rpx;
+  color: var(--text-secondary);
+}
+
+.nutrition-bars {
+  margin-top: 24rpx;
+}
+
+.nutrition-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.bar-label {
+  width: 120rpx;
+  font-size: 28rpx;
+  color: var(--text-secondary);
+}
+
+.bar-container {
+  flex: 1;
+  height: 16rpx;
+  background: #F5F5F5;
+  border-radius: var(--border-radius);
+  margin: 0 20rpx;
+  overflow: hidden;
+}
+
+.bar-progress {
+  height: 100%;
+  background: var(--primary-color);
+  border-radius: var(--border-radius);
+  transition: width 0.3s ease;
+}
+
+.bar-progress.empty {
+  background: #E0E0E0;
+  opacity: 0.5;
+}
+
+.bar-value {
+  width: 80rpx;
+  font-size: 28rpx;
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+/* 餐食卡片 */
+.meals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.meal-item {
+  display: flex;
+  align-items: center;
+  padding: 16rpx;
+  background: #F8F8F8;
+  border-radius: var(--border-radius);
+  position: relative;
+  min-height: 88rpx;
+}
+
+.meal-emoji {
+  font-size: 36rpx;
+  margin-right: 20rpx;
+}
+
+.meal-type {
+  font-size: 28rpx;
+  color: var(--text-secondary);
+  width: 100rpx;
+}
+
+.meal-content {
+  flex: 1;
+  font-size: 28rpx;
+  color: var(--text-primary);
+}
+
+/* 运动卡片 */
+.exercise-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.exercise-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 16rpx;
+  background: #F8F8F8;
+  border-radius: var(--border-radius);
+}
+
+.no-exercise {
+  text-align: center;
+  padding: 30rpx;
+  color: var(--primary-color);
+  font-size: 32rpx;
+  position: relative;
+  min-height: 88rpx;
+}
+
+/* 小贴士卡片 */
+.tip-content {
+  font-size: 28rpx;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.user-info {
+  display: none;
+}
+
+.stats-card {
+  display: none;
+}
+
+.recent-activities {
+  display: none;
+}
+
+.today-meals {
+  display: none;
+}
+
+.today-exercises {
+  display: none;
+}
+
+.meal-list {
+  display: none;
+}
+
+.history-section {
+  display: none;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.history-item {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 16rpx;
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.history-meal-type {
+  font-size: 24rpx;
+  color: #666;
+  background: #f0f0f0;
+  padding: 4rpx 12rpx;
+  border-radius: 4rpx;
+}
+
+.history-image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 8rpx;
+}
+
+.history-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.history-name {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.history-time {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.item-hover {
+  opacity: 0.8;
+  background: #EFEFEF;
+}
+
+.auth-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.auth-content {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  width: 80%;
+  text-align: center;
+}
+
+.auth-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.auth-desc {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 30rpx;
+}
+
+.auth-btn {
+  background: #07c160;
+  color: #fff;
+  border-radius: 8rpx;
+  padding: 20rpx 0;
+} 
